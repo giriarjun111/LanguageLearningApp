@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Profile: {{ object.user.username }}</h1>
+    <p>Subscription Type: {{ object.subscription_type }}</p>
+    <p>Progress: {{ object.progress }}</p>
+    <a href="#" class="btn btn-secondary">Edit Profile</a>
+{% endblock %}

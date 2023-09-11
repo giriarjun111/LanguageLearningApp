@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Language Learning App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'language_list' %}">Languages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lesson_list' %}">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'quiz_list' %}">Quizzes</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Hello, {{user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' user.username %}">Profile</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="mt-4">
+        <h1>Welcome to the Language Learning App</h1>
+        <p>Learning a new language is more than just acquiring new words and phrases. It's a journey into a new culture, a new way of seeing the world, and a great way to expand your horizons.</p>
+
+        <h2>Why Learn a New Language?</h2>
+        <ul>
+            <li><strong>Career Advancement:</strong> Being multilingual can open doors to various job opportunities.</li>
+            <li><strong>Cultural Understanding:</strong> Understanding a language provides deep insights into the culture it originates from.</li>
+            <li><strong>Enhanced Cognitive Abilities:</strong> Learning a new language improves memory, problem-solving, and multitasking skills.</li>
+        </ul>
+
+        <h2>How Our App Helps?</h2>
+        <p>Our platform provides lessons in multiple languages, quizzes to test your knowledge, and a community of learners to interact with. Whether you are a beginner or looking to advance your skills, we have something for everyone.</p>
+    </div>
+{% endblock %}

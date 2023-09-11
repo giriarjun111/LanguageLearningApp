@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Languages</h1>
+    <ul class="list-group mt-3">
+        {% for language in object_list %}
+            <li class="list-group-item">
+                <a href="{% url 'language_detail' language.name %}">{{ language.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
